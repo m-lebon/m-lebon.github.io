@@ -31,7 +31,14 @@ jobs:
       - name: Prepare site artifact
         run: |
           mkdir -p _site
-          cp index.html Mel_246.jpg _site/
+          required_files=(index.html Mel_246.jpg)
+          for file in "${required_files[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "Missing required site file: $file" >&2
+              exit 1
+            fi
+          done
+          cp "${required_files[@]}" _site/
           if [ -f CNAME ]; then cp CNAME _site/; fi
 
       - name: Upload artifact
