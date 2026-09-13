@@ -31,11 +31,8 @@ jobs:
       - name: Prepare site artifact
         run: |
           mkdir -p _site
-          rsync -av --delete \
-            --exclude '.git/' \
-            --exclude '.github/' \
-            --exclude '_site/' \
-            ./ _site/
+          cp index.html Mel_246.jpg _site/
+          if [ -f CNAME ]; then cp CNAME _site/; fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
