@@ -28,24 +28,10 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      - name: Prepare site artifact
-        shell: bash
-        run: |
-          mkdir -p _site
-          required_files=(index.html Mel_246.jpg)
-          for file in "${required_files[@]}"; do
-            if [ ! -f "$file" ]; then
-              echo "Missing required site file: $file" >&2
-              exit 1
-            fi
-          done
-          cp "${required_files[@]}" _site/
-          if [ -f CNAME ]; then cp CNAME _site/; fi
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: site
 
       - name: Deploy to GitHub Pages
         id: deployment
