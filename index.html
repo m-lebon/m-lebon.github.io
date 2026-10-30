@@ -145,12 +145,6 @@
       opacity: 0;
       animation: fadeIn 1s ease forwards 0.5s;
     }
-    .hero-image::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to right, var(--cream) 0%, transparent 15%);
-      pointer-events: none;
-    }
 
     /* ── SECTIONS ── */
     section { padding: 7rem 4rem; }
@@ -374,7 +368,6 @@
       #hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-text { padding: 7rem 1.5rem 3rem; }
       .hero-image { height: 60vw; }
-      .hero-image::after { background: linear-gradient(to bottom, var(--cream) 0%, transparent 20%); }
       section { padding: 5rem 1.5rem; }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
