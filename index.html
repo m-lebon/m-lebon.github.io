@@ -134,14 +134,19 @@
     .btn-outline:hover { background: var(--sand); }
 
     .hero-image {
-      position: relative;
-      overflow: hidden;
-      background: var(--sand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 4rem;
     }
     .hero-image img {
-      width: 100%; height: 100%;
+      width: 100%;
+      /* Never scale past the file's native 480x360 - upscaling is what made it blurry */
+      max-width: 480px;
+      aspect-ratio: 4 / 3;
+      height: auto;
       object-fit: cover;
-      object-position: center top;
+      object-position: center;
       opacity: 0;
       animation: fadeIn 1s ease forwards 0.5s;
     }
@@ -367,7 +372,7 @@
       .nav-links { gap: 1.5rem; }
       #hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-text { padding: 7rem 1.5rem 3rem; }
-      .hero-image { height: 60vw; }
+      .hero-image { padding: 0 1.5rem 3rem; }
       section { padding: 5rem 1.5rem; }
       .about-grid { grid-template-columns: 1fr; gap: 3rem; }
       .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
@@ -437,7 +442,7 @@
       <div class="about-stats">
         <div class="stat">
           <div class="stat-number">PhD</div>
-          <div class="stat-label">Biosciences<br>University of Nottingham</div>
+          <div class="stat-label">Veterinary Science<br>University of Nottingham</div>
         </div>
         <div class="stat">
           <div class="stat-number">10+</div>
